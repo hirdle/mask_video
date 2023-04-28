@@ -10,7 +10,9 @@ bot_token = '6042062896:AAFo2GFa7N5qT4Nwd4RIA5X3109XSWPbHnk'  # Замените
 bot = telebot.TeleBot(bot_token)
 
 
-
+@bot.message_handler(commands=['start'])
+def start(message):
+	bot.reply_to(message, "Привет! Отправь мне видео-кружочек или видео для накладывания маски!\nВсе данные защищены.")
 
 
 @bot.message_handler(content_types=['video'])
