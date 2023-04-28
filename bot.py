@@ -16,6 +16,8 @@ bot = telebot.TeleBot(bot_token)
 @bot.message_handler(content_types=['video'])
 def video(message):
 
+    bot.send_message(message.chat.id, "Видео обрабатывается. Подождите.", reply_to_message_id=message.id)
+
     raw = message.video.file_id
     path = raw+".mp4"
 
@@ -42,6 +44,8 @@ def video(message):
 
 @bot.message_handler(content_types=['video_note'])
 def video_note(message):
+
+    bot.send_message(message.chat.id, "Видео обрабатывается. Подождите.", reply_to_message_id=message.id)
 
     raw = message.video_note.file_id
     path = raw+".mp4"
