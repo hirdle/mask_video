@@ -30,7 +30,7 @@ def video(message):
     VideoFileClip('final_'+path).set_audio(VideoFileClip(path).audio).write_videofile(final_path)
 
     video = open(final_path, 'rb')
-    bot.send_video(message.chat.id, video)
+    bot.send_video(message.chat.id, video, reply_to_message_id=message.id)
 
     os.remove('final_'+path)
     os.remove(path)
@@ -57,7 +57,7 @@ def video_note(message):
     VideoFileClip('final_'+path).set_audio(VideoFileClip(path).audio).write_videofile(final_path)
 
     videonote = open(final_path, 'rb')
-    bot.send_video_note(message.chat.id, videonote)
+    bot.send_video_note(message.chat.id, videonote, reply_to_message_id=message.id)
 
     os.remove('final_'+path)
     os.remove(path)
